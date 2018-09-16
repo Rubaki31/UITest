@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Selenide;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
@@ -8,6 +9,7 @@ import static com.codeborne.selenide.Selenide.open;
     public class UITest {
         @Test
         public void yandexSearch() {
+            Selenide.clearBrowserCookies();
             //Открываем яндекс
             open("https://yandex.ru");
             // Производим поиск
