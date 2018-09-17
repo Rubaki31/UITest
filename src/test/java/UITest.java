@@ -1,10 +1,10 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -29,7 +29,7 @@ public class UITest {
             switchTo().window(1);
 
 
-
+            //Ждем загрузку сайта ЕЭТП
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
@@ -37,6 +37,8 @@ public class UITest {
             }
 
             $(By.cssSelector("a.g-register-btn.js-register-popup-link")).click();
+            //Проверка, что кнопка Поставщик появилась
+            $(By.xpath("//a[2]/i/img")).shouldBe(Condition.visible);
             $(By.xpath("//a[2]/i/img")).click();
 
             $(By.xpath("//div[2]/div/div/div/div/a")).click();
@@ -46,6 +48,9 @@ public class UITest {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            //Проверка, что кнопка продолжить есть
+            $(By.id("ext-gen37")).shouldBe(Condition.appear);
+
 
         }
     }
