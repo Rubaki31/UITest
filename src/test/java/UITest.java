@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.switchTo;
 public class UITest {
         @Test
         public void yandexSearch() {
-            //WebDriver driver =new ChromeDriver();
+
             Configuration.browser="chrome";
 
             Selenide.clearBrowserCookies();
@@ -23,7 +23,7 @@ public class UITest {
             //Вводим ЕЭТП в поле поиска и нажимаем Enter
             $(By.id("text")).val("ЕЭТП").pressEnter();
 
-            //$("#ires .g").shouldHave(text("Roseltorg.ru"));
+
             $(By.xpath("//b[3]")).click();
             //Так как ссылка откроется в новом окне, переключаемся на него
             switchTo().window(1);
@@ -38,7 +38,9 @@ public class UITest {
 
             $(By.cssSelector("a.g-register-btn.js-register-popup-link")).click();
             $(By.xpath("//a[2]/i/img")).click();
+
             $(By.xpath("//div[2]/div/div/div/div/a")).click();
+
             try {
                 Thread.sleep(3000);
             } catch (InterruptedException e) {
