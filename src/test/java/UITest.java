@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.Test;
@@ -14,7 +15,7 @@ public class UITest {
         @Test
         public void yandexSearch() {
             //WebDriver driver =new ChromeDriver();
-            WebDriverRunner.isChrome();
+            Configuration.browser="chrome";
 
             Selenide.clearBrowserCookies();
             //Открываем Яндекс
