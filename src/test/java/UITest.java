@@ -41,6 +41,12 @@ public class UITest {
             $(By.xpath("//a[2]/i/img")).shouldBe(Condition.visible);
             $(By.xpath("//a[2]/i/img")).click();
 
+            try {
+                Thread.sleep(1500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             $(By.xpath("//div[2]/div/div/div/div/a")).click();
 
             try {
